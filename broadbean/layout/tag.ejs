@@ -1,0 +1,19 @@
+<div class="main-tags">
+  <article>
+    <h1><%= page.tag %></h1>
+    <% page.posts.each(function(article) { %>
+      <div class="tag-item">
+        <% if (article.canonical_path) { %>
+          <a href="<%=url_for(article.canonical_path)%>">
+            <%= article.title || 'No Title'%>
+          </a>
+        <% } %>
+
+        <time datetime="<%- date_xml(article.date) %>">
+          <%- date(article.date) %>
+        </time>
+      </div>
+    <% }) %>
+  </article>
+  <%- partial('_partials/pagination') %>
+</div>

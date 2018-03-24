@@ -1,0 +1,66 @@
+<%
+  var pageTitle = page.title || config.subtitle || '';
+  if (is_archive()) pageTitle = 'Archives';
+  if (is_tag()) pageTitle = 'Tag: ' + page.tag;
+  if (is_category()) pageTitle = 'Category: ' + page.category;
+  if (is_month()) pageTitle += ': ' + page.month + '/' + page.year;
+  if (is_year()) pageTitle += ': ' + page.year;
+  pageTitle += ' [ ' + config.title + ' ]';
+%>
+
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width-device-width, initial-scale=1.0">
+  <title><%= pageTitle %></title>
+
+  <script type="text/javascript" src="<%- url_for('js/jquery-3.3.1.min.js') %>"></script>
+
+  <!-- css -->
+  <% if (theme.stylesheets !== undefined && theme.stylesheets.length > 0) { %>
+    <!-- stylesheets list from config.yml --> 
+    <% theme.stylesheets.forEach(function(url) { %>
+      <link rel="stylesheet" href="<%=url%>">
+    <% }); %>
+  <% } %>
+</head>
+
+<body>
+  <!-- load header -->
+  <%- partial('_partials/header') %>
+
+  <!-- main -->
+  <main id="main" class="main">
+      <%- body %>
+  </main>
+
+  <!-- footer -->
+  <footer id="footer" class="footer">
+    <div id="footer-inner" class="footer-inner">
+      <span>Site by</span>
+      <%= config.author %>
+      <span>Powered by</span>
+      <a href="http://hexo.io">hexo</a>
+      <span>Theme by</span>
+      <a href="https://github.com/Aaron-Bird/Broadbean">Aaron Bird</a>
+    </div>
+  </footer>
+
+  <!-- search -->      
+  <% if (theme.local_search) { %>
+    <%- partial('_widget/search.ejs') %>
+  <% } %>
+
+  <!-- load js -->
+  <% if (is_post()) { %>
+    <script type="text/javascript" src="<%- url_for('js/toc.js') %>"></script>
+  <% } %>
+  <% if (theme.scripts !== undefined && theme.scripts.length > 0) { %>
+    <% theme.scripts.forEach(function(url) { %>
+      <script src="<%= url %>"></script>
+    <% }) %>
+  <% } %>
+
+</body>
+</html>

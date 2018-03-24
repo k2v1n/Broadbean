@@ -1,0 +1,37 @@
+<header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <div id="header-title" class="inner">
+        <!-- title -->
+        <div id="logo-wrap">
+          <a href="<%- url_for() %>" id="logo"><%= config.title %></a>
+        </div>
+        <!-- subtitle -->
+        <% if (theme.subtitle){ %>
+          <h2 id="subtitle-wrap">
+            <a href="<%- url_for() %>" id="subtitle"><%= theme.subtitle %></a>
+          </h2>
+        <% } %>
+      </div>
+
+      <nav id="header-nav">
+        <ul class="">
+          <% for (var i in theme.menu){ %>
+            <li>
+              <a class="" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+            </li>
+          <% } %>
+          
+          <% if (theme.local_search) { %>
+            <li id="site-search-btn">
+              <a href="javascript:void(0)">search</a>
+            </li>
+          <% } %>
+
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+

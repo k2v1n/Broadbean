@@ -1,0 +1,224 @@
+col-blue = #00f;
+col-black = #333;
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #ECEDEE;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    color: col-black;
+    line-height: 1.75rem;
+    text-rendering: optimizelegibility;
+}
+
+body {
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #fefefe url(../img/bg.png) repeat top center;
+}
+
+a {
+    font-size: inherit;
+    color: col-black;
+    text-decoration: none;
+}
+
+img {
+    max-width:  100%;
+}
+
+ul{
+    margin-left: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid col-black;  
+    font-size: 0.875rem;
+    th {
+        font-size: 1rem;
+    }
+    td,th {
+        border: 1px solid col-black;  
+        padding: 10px;
+    }
+}
+
+.video-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: calc(9 / 16 * 100%);
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+article {
+    letter-spacing: 0.8px;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.75rem;
+}
+
+h2, h3 {
+    margin: 16px 0;
+}
+
+h4, h5, h6 {
+    margin: 12px 0;
+}
+
+p {
+    margin: 8px 0;
+    line-height: 1.875rem; 
+}
+
+.post-meta {
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+time {
+    font-size: 0.75rem;
+    color: #aaa;
+}
+
+pre {
+    margin: 10px 0;
+    padding: 10px;
+    color: #fefefe;
+    font-size: 0.845rem;
+    line-height: 1.5rem;
+    background-color: #222;
+    font-family: 'Source Code Pro' ,consolas;
+    overflow: auto;  
+}
+
+.highlight {
+    margin: 10px 0;
+    width: 100%;
+    overflow: auto;
+    background-color: #222;
+    color: #fff;
+    font-size: 0.875rem;
+    figcaption {
+        background-color: #111;
+        margin-left: 20px;
+        padding: 4px;
+    }
+    table, tr, td {
+        border: none;
+        padding: 0;
+    }
+    pre {
+        margin: 0;
+    }
+    .gutter {
+        background-color: #333;
+        border: none;
+        user-select: none;
+        width: 20px;
+        text-align: center;
+        pre {
+            min-width: 20px;
+            background-color: inherit;
+        }
+    }  
+}
+
+blockquote {
+    font-size: 1.4rem;
+    margin: 10px 0;
+    text-align: center;
+    footer {
+        font-size: 0.875rem;
+        cite {
+            &:before {
+                content: "—";
+                padding: 0 0.5rem;                   
+            }
+        }  
+    }
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.center {
+    text-align: center;
+}
+
+.pullquote {
+    text-align: left;
+    width: 40%;
+    margin: 0;
+    &.left {
+        margin-left: 0.5rem;
+        margin-right: 1rem;       
+    }
+    &.right{
+        text-align: right;
+        margin-right: 0.5rem;
+        margin-left: 1rem;  
+    }  
+}
+
+
+.footer {
+    font-size: 0.75rem;
+    position: relative;
+    height: 60px;
+    overflow: hidden;
+    background-color: #fefefe;
+    color: #aaa;
+    text-align: center;
+    line-height: 60px;
+}
+
+@media screen and (max-width: 860px) {
+    .highlight {
+        td.gutter {
+            display: none;
+        }
+    }
+    h2, h3 {
+        margin: 10px 0;
+    }
+    html {
+        font-size: 12px;
+        line-height: 1.25rem;
+    }
+}
+
+@import "_partial/highlight";
+@import "_partial/main";
+@import "_partial/header";
+@import "_partial/search";

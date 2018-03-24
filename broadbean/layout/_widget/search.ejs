@@ -1,0 +1,26 @@
+<div class="site-search">
+  <div class="local-search">
+    <input type="text" id="local-search-input">
+    <div id="local-search-result"></div>      
+  </div>
+  <div class="hide-site-search" id="hide-site-search">
+    <span></span>
+    <span></span>
+  </div>
+</div>   
+
+<script src="<%- url_for('js/search.js') %>"></script> 
+<script type="text/javascript">    
+  $('#hide-site-search').on('click', function(){
+    $('.site-search').hide();
+  });
+  $('#site-search-btn').on('click', function(){
+    $('.site-search').show();
+  });
+  <% var searchPath = (config.search.path.length > 0) ? config.search.path : 'search.xml'%>
+  searchFunc('<%- url_for(searchPath) %>', 'local-search-input', 'local-search-result');
+</script>
+
+
+
+

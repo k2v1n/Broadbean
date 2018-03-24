@@ -1,0 +1,65 @@
+<div class="main-index">
+    <% if (page.posts.length > 0) { %>
+      <% page.posts.sort('date', -1).limit(10).each(function(post) { %>
+        <article>
+
+          <!-- title -->  
+          <% if (post.link) { %>
+            <a href="<%= post.link %>">
+              <h2><%= post.title %></h2> 
+            </a>        
+          <% } else if (post.title){ %>
+            <a href="<%- url_for(post.path) %>">
+              <h2><%=post.title%></h2> 
+            </a>                  
+          <% } %>
+          
+          <div class="post-meta">
+            <!-- time -->
+            <% if (post.date) { %>
+              <time datetime="<%= post.date.toJSON() %>">
+                <%=date(post.date)%>
+              </time>
+            <% } %>
+            <!-- 分类 -->
+            <% if (post.categories && post.categories.length > 0) { %>
+                <% post.categories.forEach(function(cate){ %>
+                  <a href="<%- url_for(cate.path)%>">
+                    <span><%= cate.name %></span>
+                  </a>
+                <% }) %>
+            <% } %>
+          </div>
+
+          <!-- article -->
+          <div class="article-entry" itemprop="articleBody">
+            <!-- gallery -->
+            <%- partial('_partials/gallery', {post: post}) %>
+
+            <!-- excerpt -->
+            <% if (post.description && theme.excerpt_description) { %>
+              <%= post.description %>
+               <!-- && index -->
+            <% } else if (post.excerpt){ %> 
+              <%- post.excerpt %>
+              <% if (theme.excerpt_link){ %>
+                <p class="article-more-link">
+                  <a href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
+                </p>
+              <% } %>
+            <!-- content -->
+            <% } else { %>
+              <%- post.content %>
+            <% } %>
+            <p class="article-more-link">
+              <a href="<%- url_for(post.path) %>">more</a>
+            </p>
+          </div>
+        </article>
+      <% }) %>
+    <% } %>
+
+    <%- partial('_partials/pagination')%>
+</div>
+
+

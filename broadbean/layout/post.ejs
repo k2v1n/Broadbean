@@ -1,0 +1,66 @@
+<!-- post -->
+<% var hasToc = toc(page.content).length > 0 %>
+
+<div class="main-post <%= hasToc ? 'show-toc' : 'hide-toc' %>">
+  <!-- a table of content -->
+  <% if (toc(page.content).length > 0) { %>
+    <div class="post-toc">
+      <div class="post-toc-content">
+        <%- toc(page.content, {list_number: false}) %>
+      </div>
+    </div>
+  <% } %>
+
+  <!-- article -->
+  <article>
+    <!-- title -->
+    <% if (page.link) { %>
+      <a href="<%=page.link%>">
+        <h1><%=page.title%></h1> 
+      </a>        
+    <% } else if (page.title) { %>
+      <a href="<%- url_for(page.path) %>">
+        <h1><%= page.title %></h1> 
+      </a>                  
+    <% } %>
+    
+    <div class="post-meta">
+      <!-- category -->
+      <span>category:&nbsp</span>
+      <% page.categories.forEach(function(cate) { %>
+        <a href="<%- url_for(cate.path)%>">
+          <span><%= cate.name %></span>
+        </a>
+      <% }) %>
+      
+      <!-- tag -->
+<!--       <span>tag:</span>
+      <% page.tags.forEach(function(tag) { %>
+        <a href="<%- url_for(tag.path)%>">
+          <span><%= tag.name %></span>
+        </a>
+      <% }) %> -->
+    </div>
+    <!-- content -->
+    <%- page.content %>
+  </article>
+
+  <!-- pagination -->
+  <% if  (page.prev || page.next) { %>
+    <nav class="pagination">
+      <% if (page.prev) { %>
+        <a class="prev" href="<%- url_for(page.prev.path) %>"><%= '<  ' + page.prev.title %></a>
+      <% } %>
+
+      <% if (page.next) { %>
+        <a class="next" href="<%- url_for(page.next.path) %>"><%= page.next.title + '  >'  %></a>
+      <% } %>
+    </nav>    
+  <% } %>
+
+</div>
+
+
+
+
+
