@@ -2,6 +2,9 @@
 
 hexo主题  
 
+![](docs/img/mockup1.jpg)  
+![](docs/img/mockup2.jpg)  
+
 ## 安装  
 
 1 将broadbean文件夹放在hexo根目录下"themes"文件夹中      
