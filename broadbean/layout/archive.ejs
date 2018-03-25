@@ -1,21 +1,23 @@
 <div class="main-archives">
-  <article class="post-item center">
+  <article class="center">
     <% var prevYear %>
     <% page.posts.sort('date', -1).each(function(post) { %>
       <% var year = parseInt(date(post.date, 'YYYY')) %>
       <% if (prevYear !== year) { %>
-        <h2 class="center"><%= year %></h2>
+        <h1 class="center"><%= year %></h1>
         <% prevYear = year %>
       <% } %>
-      <p>
-        <a href="<%- url_for(post.path) %>">
-          <span><%= post.title %></span>
-        </a>
-        <br>
-        <time>
+
+      <section>
+        <h2>
+          <a href="<%- url_for(post.path) %>">
+            <span><%= (post.title.length) > 0 ? post.title : 'no title' %></span>
+          </a>
+        </h2>
+        <time datetime="<%- date_xml(post.date) %>">
           <small><%= date(post.date, 'YYYY-M-D') %></small>
         </time>
-      </p>
+      </section>
     <% }) %>
   </article>
   <%- partial('_partials/pagination') %>

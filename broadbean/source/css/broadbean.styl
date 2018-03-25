@@ -1,6 +1,5 @@
-col-blue = #00f;
-col-black = #333;
-
+col-blue=#007bff;
+col-black=#444;
 ::-webkit-scrollbar {
     width: 10px;
     height: 8px;
@@ -19,39 +18,54 @@ col-black = #333;
 html {
     font-size: 16px;
     color: col-black;
-    line-height: 1.75rem;
-    text-rendering: optimizelegibility;
+    letter-spacing: 0.4px;
+    line-height: 1.5rem;
 }
 
 body {
-    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
     background: #fefefe url(../img/bg.png) repeat top center;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.center {
+    text-align: center;
 }
 
 a {
     font-size: inherit;
-    color: col-black;
+    color: col-blue;
     text-decoration: none;
 }
 
 img {
-    max-width:  100%;
+    max-width: 100%;
 }
 
-ul{
+ul,
+ol {
     margin-left: 20px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid col-black;  
+    border: 1px solid #aaa;
     font-size: 0.875rem;
     th {
+        background-color: #f8f9fa;
         font-size: 1rem;
     }
-    td,th {
-        border: 1px solid col-black;  
+    td,
+    th {
+        border: 1px solid #aaa;
         padding: 10px;
     }
 }
@@ -73,36 +87,48 @@ table {
     bottom: 0;
 }
 
-article {
-    letter-spacing: 0.8px;
-}
-
 h1 {
     text-align: center;
-    margin: 20px 0;
-    font-size: 1.75rem;
+    margin: 20px 0 10px;
+    font-size: 1.625rem;
 }
 
-h2, h3 {
-    margin: 16px 0;
+h2 {
+    font-size: 1.5rem;
 }
 
-h4, h5, h6 {
+h2,
+h3 {
     margin: 12px 0;
+}
+
+h4,
+h5,
+h6 {
+    margin: 6px 0;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #aaa;
+}
+
+section {
+    margin: 10px 0;
 }
 
 p {
     margin: 8px 0;
-    line-height: 1.875rem; 
 }
 
 .post-meta {
     font-size: 0.75rem;
+    line-height: 0.875rem;
     text-align: center;
 }
 
 time {
-    font-size: 0.75rem;
     color: #aaa;
 }
 
@@ -111,10 +137,10 @@ pre {
     padding: 10px;
     color: #fefefe;
     font-size: 0.845rem;
-    line-height: 1.5rem;
+    line-height: 1.25rem;
     background-color: #222;
-    font-family: 'Source Code Pro' ,consolas;
-    overflow: auto;  
+    font-family: 'Source Code Pro', consolas;
+    overflow: auto;
 }
 
 .highlight {
@@ -125,11 +151,12 @@ pre {
     color: #fff;
     font-size: 0.875rem;
     figcaption {
-        background-color: #111;
         margin-left: 20px;
         padding: 4px;
     }
-    table, tr, td {
+    table,
+    tr,
+    td {
         border: none;
         padding: 0;
     }
@@ -146,7 +173,7 @@ pre {
             min-width: 20px;
             background-color: inherit;
         }
-    }  
+    }
 }
 
 blockquote {
@@ -158,22 +185,10 @@ blockquote {
         cite {
             &:before {
                 content: "—";
-                padding: 0 0.5rem;                   
+                padding: 0 0.5rem;
             }
-        }  
+        }
     }
-}
-
-.left {
-    float: left;
-}
-
-.right {
-    float: right;
-}
-
-.center {
-    text-align: center;
 }
 
 .pullquote {
@@ -182,15 +197,14 @@ blockquote {
     margin: 0;
     &.left {
         margin-left: 0.5rem;
-        margin-right: 1rem;       
+        margin-right: 1rem;
     }
-    &.right{
+    &.right {
         text-align: right;
         margin-right: 0.5rem;
-        margin-left: 1rem;  
-    }  
+        margin-left: 1rem;
+    }
 }
-
 
 .footer {
     font-size: 0.75rem;
@@ -209,7 +223,8 @@ blockquote {
             display: none;
         }
     }
-    h2, h3 {
+    h2,
+    h3 {
         margin: 10px 0;
     }
     html {

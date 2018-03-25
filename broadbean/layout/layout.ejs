@@ -1,11 +1,11 @@
 <%
   var pageTitle = page.title || config.subtitle || '';
+  if (is_home()) pageTitle += config.title;
   if (is_archive()) pageTitle = 'Archives';
   if (is_tag()) pageTitle = 'Tag: ' + page.tag;
   if (is_category()) pageTitle = 'Category: ' + page.category;
   if (is_month()) pageTitle += ': ' + page.month + '/' + page.year;
   if (is_year()) pageTitle += ': ' + page.year;
-  pageTitle += ' [ ' + config.title + ' ]';
 %>
 
 <!DOCTYPE html>
@@ -15,11 +15,11 @@
   <meta name="viewport" content="width-device-width, initial-scale=1.0">
   <title><%= pageTitle %></title>
 
+  <script type="text/javascript" src="<%- url_for('js/fontawesome-all.min.js') %>"></script>
   <script type="text/javascript" src="<%- url_for('js/jquery-3.3.1.min.js') %>"></script>
-
+  
   <!-- css -->
   <% if (theme.stylesheets !== undefined && theme.stylesheets.length > 0) { %>
-    <!-- stylesheets list from config.yml --> 
     <% theme.stylesheets.forEach(function(url) { %>
       <link rel="stylesheet" href="<%=url%>">
     <% }); %>
@@ -27,7 +27,7 @@
 </head>
 
 <body>
-  <!-- load header -->
+  <!-- header -->
   <%- partial('_partials/header') %>
 
   <!-- main -->
@@ -38,12 +38,9 @@
   <!-- footer -->
   <footer id="footer" class="footer">
     <div id="footer-inner" class="footer-inner">
-      <span>Site by</span>
-      <%= config.author %>
-      <span>Powered by</span>
-      <a href="http://hexo.io">hexo</a>
-      <span>Theme by</span>
-      <a href="https://github.com/Aaron-Bird/Broadbean">Aaron Bird</a>
+      <span>Site by <%= config.author %>.</span>
+      <span>Powered by <a href="http://hexo.io" rel="nofollow">hexo</a>.</span>
+      <span>Theme by <a href="https://github.com/Aaron-Bird/Broadbean" rel="nofollow">Aaron Bird</a>.</span>
     </div>
   </footer>
 

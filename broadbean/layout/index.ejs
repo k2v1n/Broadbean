@@ -6,11 +6,11 @@
           <!-- title -->  
           <% if (post.link) { %>
             <a href="<%= post.link %>">
-              <h2><%= post.title %></h2> 
+              <h2><%= (post.title.length) > 0 ? post.title : date(post.date, 'YYYYMD')%></h2> 
             </a>        
-          <% } else if (post.title){ %>
+          <% } else { %>
             <a href="<%- url_for(post.path) %>">
-              <h2><%=post.title%></h2> 
+              <h2><%= (post.title.length) > 0 ? post.title : date(post.date, 'YYYYMD')%></h2> 
             </a>                  
           <% } %>
           
@@ -21,7 +21,7 @@
                 <%=date(post.date)%>
               </time>
             <% } %>
-            <!-- 分类 -->
+            <!-- categories -->
             <% if (post.categories && post.categories.length > 0) { %>
                 <% post.categories.forEach(function(cate){ %>
                   <a href="<%- url_for(cate.path)%>">
@@ -38,10 +38,15 @@
 
             <!-- excerpt -->
             <% if (post.description && theme.excerpt_description) { %>
-              <%= post.description %>
+              <section class="<%= post.excerpt.length < 200 ? 'center' : '' %>">
+                <p><%= post.description %></p>
+              </section>
                <!-- && index -->
             <% } else if (post.excerpt){ %> 
-              <%- post.excerpt %>
+              <section class="<%= post.excerpt.length < 200 ? 'center' : '' %>">
+                <%- post.excerpt %>
+              </section>
+              
               <% if (theme.excerpt_link){ %>
                 <p class="article-more-link">
                   <a href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
@@ -51,9 +56,6 @@
             <% } else { %>
               <%- post.content %>
             <% } %>
-            <p class="article-more-link">
-              <a href="<%- url_for(post.path) %>">more</a>
-            </p>
           </div>
         </article>
       <% }) %>

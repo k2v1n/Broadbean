@@ -1,13 +1,9 @@
-
-# html lang
-language: en
-
 # main menu navigation
 menu:
-  Home: /
-  Categories: /categories
-  Tags: /tags
-  Archives: /archives
+  home: /
+  categories: /categories
+  tags: /tags
+  archives: /archives
 
 # Miscelaneous
 favicon: /favicon.ico

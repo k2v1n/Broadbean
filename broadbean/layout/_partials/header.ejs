@@ -19,13 +19,13 @@
         <ul class="">
           <% for (var i in theme.menu){ %>
             <li>
-              <a class="" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+              <a class="" href="<%- url_for(theme.menu[i]) %>" rel="nofollow"><%= __(i) %></a>
             </li>
           <% } %>
           
           <% if (theme.local_search) { %>
             <li id="site-search-btn">
-              <a href="javascript:void(0)">search</a>
+              <a href="javascript:void(0)" rel="nofollow"><%= __('search') %></a>
             </li>
           <% } %>
 
