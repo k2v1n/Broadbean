@@ -4,14 +4,18 @@
         <article>
 
           <!-- title -->  
-          <% if (post.link) { %>
-            <a href="<%= post.link %>">
-              <h2><%= (post.title.length) > 0 ? post.title : date(post.date, 'YYYYMD')%></h2> 
-            </a>        
-          <% } else { %>
-            <a href="<%- url_for(post.path) %>">
-              <h2><%= (post.title.length) > 0 ? post.title : date(post.date, 'YYYYMD')%></h2> 
-            </a>                  
+          <% if (post.link) { %>            
+            <h2>
+              <a href="<%= post.link %>">
+                <%= (post.title.length) > 0 ? post.title : date(post.date, 'YYYYMD')%>
+              </a>    
+            </h2>                 
+          <% } else { %>           
+            <h2>
+              <a href="<%- url_for(post.path) %>">
+                <%= (post.title.length) > 0 ? post.title : date(post.date, 'YYYYMD')%>
+              </a>  
+            </h2>                 
           <% } %>
           
           <div class="post-meta">

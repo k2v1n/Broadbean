@@ -1,14 +1,11 @@
 # Broadbean
 
-hexo主题  
-
-![](docs/img/mockup1.jpg)  
-![](docs/img/mockup2.jpg)  
+Hexo主题  
 
 ## 安装  
 
-1 将"broadbean"放在hexo根目录下"themes"文件夹中    
-2 将"source"中的文件夹(categories和tags)放在hexo根目录下"source"文件夹中  
+1 将"broadbean"放在Hexo根目录下"themes"文件夹中    
+2 将"source"中的文件夹("categories"和"tags")放在Hexo根目录下"source"文件夹中  
 3 打开根目录下"\_config.yml",修改"theme"项为:  
 ```
 theme: broadbean
