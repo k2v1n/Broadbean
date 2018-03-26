@@ -10,20 +10,10 @@
     .main-post {
         max-width: 1800px;
         margin: 0 auto;
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h5 {
-            color: #555;
-        }
-        /* transition: 0.4s ease; */
     }
     .main-index {
         h2,
         .article-more-link {
-            text-align: center;
         }
     }
     .main-categories,
@@ -31,14 +21,12 @@
     .main-archives {
         article {
             min-height: 100vh;
-            text-align: center;
         }
     }
     .main-tags a.tag,
     .main-categories a.category {
         min-width: 100px;
         display: inline-block;
-        box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.1);
         margin: 10px;
         padding: 8px;
     }
@@ -54,16 +42,26 @@
 }
 
 .main article {
+    position: relative;
     border-radius: 6px;
-    min-height: 150px;
-    margin: 10px auto;
-    box-shadow: 4px 4px 20px -5px rgba(0, 0, 0, 0.1);
+    min-height: 130px;
+    margin: 0px auto 10px;
     width: calc(100% - 460px);
-    background-color: #fff;
-    padding: 20px 10px;
+    padding: 10px 10px 30px;
+    
     img {
         display: block;
         margin: 0 auto;
+    }
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        height: 1px;
+        width: 100%;
+        left: 0%;
+        border-bottom: 1px dashed #8795a1;
     }
 }
 
@@ -76,13 +74,16 @@
     overflow: auto;
     float: right;
     width: 300px;
-    padding: 20px 10px;
+    padding: 10px 0px;
     top: 10px;
     right: 0;
-    background-color: #fff;
-    box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.1);
+    margin-left: -20px;
+    border-top: 2px solid col-black;
     transition: 1s linear;
     font-size: 0.875rem;
+    .post-toc-content {
+       margin-left: -20px; 
+    }
     a {
         transition: 0.1s linear;
         color: #222;
@@ -96,7 +97,6 @@
         white-space: nowrap;
         line-height: 1.5rem;
         list-style-type: none;
-        margin-left: 10px;
     }
     .toc>.toc-item li {
         display: none;

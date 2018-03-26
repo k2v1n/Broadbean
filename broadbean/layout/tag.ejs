@@ -1,16 +1,17 @@
 <div class="main-tags">
   <article>
-    <h1><%= page.tag %></h1>
+    <h2><%= page.tag %></h2>
     <% page.posts.each(function(tag) { %>
       <section>
-        <h2>
+        <h3>
           <a href="<%=url_for(tag.canonical_path)%>">
             <%= tag.title || 'no title'%>
           </a>
-        </h2>
-        <time datetime="<%- date_xml(tag.date) %>">
-          <small><%- date(tag.date) %></small>
-        </time>
+          <time datetime="<%- date_xml(tag.date) %>">
+            <small><%- date(tag.date) %></small>
+          </time>
+        </h3>
+
       </section>
     <% }) %>
   </article>

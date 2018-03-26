@@ -4,19 +4,20 @@
     <% page.posts.sort('date', -1).each(function(post) { %>
       <% var year = parseInt(date(post.date, 'YYYY')) %>
       <% if (prevYear !== year) { %>
-        <h1 class="center"><%= year %></h1>
+        <h2 class="center"><%= year %></h2>
         <% prevYear = year %>
       <% } %>
 
       <section>
-        <h2>
+        <h3>
           <a href="<%- url_for(post.path) %>">
             <span><%= (post.title.length) > 0 ? post.title : 'no title' %></span>
           </a>
-        </h2>
-        <time datetime="<%- date_xml(post.date) %>">
-          <small><%= date(post.date, 'YYYY-M-D') %></small>
-        </time>
+          <time datetime="<%- date_xml(post.date) %>">
+            <small><%= date(post.date, 'YYYY-M-D') %></small>
+          </time>
+        </h3>
+
       </section>
     <% }) %>
   </article>

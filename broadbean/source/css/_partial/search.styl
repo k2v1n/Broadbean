@@ -1,63 +1,69 @@
 .site-search {
     display: none;
-    z-index: 2;
     position: fixed;
-    top: 40px;
-    left: 40px;
-    right: 40px;
-    bottom: 40px;
+    z-index: 2;
+    height: 500px;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
     background-color: #fff;
-    box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 20px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 20px 10px;
     .local-search {
-        height: calc(100% - 20px);
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
+        height: 100%;
     }
 }
 
 .site-search .local-search-header {
     position: relative;
     height: 50px;
+
     #local-search-input {
         display: inline-block;
-        border: 2px solid col-blue;
-        width: 85%;
+        border: 2px solid col-black;
+        width: calc(100% - 40px);
         box-sizing: border-box;
-        height: 100%;
-        border-radius: 10px;
+        height: 40px;
         padding: 4px;
-        font-size: 1.25rem;
         outline: none;
     }
     .hide-site-search {
-        right: 0;
-        position: absolute;
+        float: right;
+        svg {
+            cursor: pointer;
+            margin-top: 10px;
+        }
     }
 }
 
 .site-search .fa-window-close {
     font-size: 2rem;
-    color: col-blue;
+    color: col-black;
     cursor: pointer;
 }
 
 .site-search #local-search-result {
+    
+    border-top: 1px dashed col-black;
+    overflow: auto;
+    height: calc(100% - 50px);
+    -webkit-overflow-scrolling: touch;
     ul.search-result-list {
         margin-left: 0;
         li {
-            border-bottom: 1px dashed col-blue;
-            margin: 20px 0;
+            border-bottom: 1px dashed col-black;
+            margin: 10px 0;
             list-style-type: none;
             .search-result-title {
-                font-size: 1.5rem;
-                font-weight: 700;
+                font-size: 1.125rem;
+                font-weight: 600;
             }
             p.search-result {
                 text-align: left;
                 em.search-keyword {
-                    font-size: 1.25rem;
+                    font-size: 1rem;
                     color: #00f;
                     font-style: normal;
                 }
@@ -68,14 +74,7 @@
 
 @media screen and (max-width: 860px) {
     .site-search {
-        top: 10px;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-        padding-left: 10px;
-        padding-right: 10px;
-        .local-search-header {
-            height: 40px;
-        }
+        width: calc(100% - 40px);
+        height: calc(100% - 60px);
     }
 }

@@ -1,29 +1,33 @@
-col-blue=#007bff;
-col-black=#444;
+col-blue= #007bff;
+col-black= #3d4852;
+
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    background-color: #ECEDEE;
+    border-radius: 6px;
+    background-color: col-black;
+
 }
 
 * {
     margin: 0;
     padding: 0;
+    vertical-align: baseline;
 }
 
 html {
     font-size: 16px;
+    text-rendering: geometricPrecision;
 }
 
 body {
     letter-spacing: 0.4px;
-    line-height: 1.5rem;
     color: col-black;
-    font-family: "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+    font-family: -apple-system, "BlinkMacSystemFont", "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+    background-color: #fefefe;
     /* background: #fefefe url(../img/bg.png) repeat top center; */
 }
 
@@ -36,16 +40,26 @@ body {
 }
 
 .center {
-    text-align: center;
+    /* text-align: center; */
 }
 
 a {
     font-size: inherit;
     color: col-black;
     text-decoration: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color: #22292f;
+}
+
+h1 {
 
 }
 
+h2 {
+    line-height: 1.5;
+}
 img {
     max-width: 100%;
 }
@@ -88,32 +102,10 @@ table {
     bottom: 0;
 }
 
-h1 {
-    text-align: center;
-    margin: 20px 0 10px;
-    font-size: 1.625rem;
-}
-
-h2 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-}
-
-h2,
-h3 {
-    margin: 12px 0;
-}
-
-h4,
-h5,
-h6 {
-    margin: 6px 0;
-}
-
 hr {
     border: none;
     height: 1px;
-    background-color: #aaa;
+    background-color: col-black;
 }
 
 section {
@@ -122,16 +114,16 @@ section {
 
 p {
     margin: 8px 0;
+    line-height: 1.5;
 }
 
 .post-meta {
     font-size: 0.75rem;
-    line-height: 0.875rem;
-    text-align: center;
+    line-height: 1.375rem;
 }
 
 time {
-    color: #aaa;
+    color: #b8c2cc;
 }
 
 pre {
