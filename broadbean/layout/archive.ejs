@@ -7,16 +7,16 @@
         <h2 class="center"><%= year %></h2>
         <% prevYear = year %>
       <% } %>
-
       <section>
-        <h3>
+        <div class="main-archives-item">
+          <time datetime="<%- date_xml(post.date) %>">
+            <small><%= date(post.date, 'YYYY-MM-DD') %></small>
+          </time>
+
           <a href="<%- url_for(post.path) %>">
             <span><%= (post.title.length) > 0 ? post.title : 'no title' %></span>
           </a>
-          <time datetime="<%- date_xml(post.date) %>">
-            <small><%= date(post.date, 'YYYY-M-D') %></small>
-          </time>
-        </h3>
+        </div>
 
       </section>
     <% }) %>
