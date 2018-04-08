@@ -4,14 +4,14 @@
     <h2><%= page.category %></h2>
     <% page.posts.each(function(cate) { %>
       <section>
-        <h3>
+        <div class="item">
+          <time datetime="<%- date_xml(cate.date) %>">
+            <small><%= date(cate.date, 'YYYY-MM-DD') %></small>
+          </time>
           <a href="<%- url_for(cate.path) %>">
             <span><%= (cate.title.length) > 0 ? cate.title : 'no title' %></span>
           </a>
-          <time datetime="<%- date_xml(cate.date) %>">
-            <small><%= date(cate.date, 'YYYY-M-D') %></small>
-          </time>
-        </h2>
+        </div>
       </section>
     <% }); %>
   </article>

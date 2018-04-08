@@ -3,15 +3,14 @@
     <h2><%= page.tag %></h2>
     <% page.posts.each(function(tag) { %>
       <section>
-        <h3>
+        <div class="item">
+          <time datetime="<%- date_xml(tag.date) %>">
+            <small><%= date(tag.date, 'YYYY-MM-DD') %></small>
+          </time>
           <a href="<%=url_for(tag.canonical_path)%>">
             <%= tag.title || 'no title'%>
           </a>
-          <time datetime="<%- date_xml(tag.date) %>">
-            <small><%- date(tag.date) %></small>
-          </time>
-        </h3>
-
+        </div>
       </section>
     <% }) %>
   </article>
