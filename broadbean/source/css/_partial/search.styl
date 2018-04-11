@@ -6,18 +6,17 @@
     left: 0; 
     right: 0; 
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 .site-search .local-search {
-    
     position: absolute;
     height: 500px;
     width: 400px;
     top: 50%;
     left: 50%;
     transform:translate(-50%,-50%);
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
     background-color: #fefefe;
     padding: 20px 10px;
     .local-search {
@@ -31,18 +30,35 @@
 
     #local-search-input {
         display: inline-block;
-        border: 2px solid col-black;
+        border: 1px solid rgba(0,0,0,0.1);
+        box-shadow: 0 0 2px rgba(0,0,0,0.1) inset;
         width: calc(100% - 40px);
         box-sizing: border-box;
-        height: 40px;
+        height: 36px;
         padding: 4px;
         outline: none;
     }
     .hide-site-search {
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
         float: right;
+        text-align: center;
+        position: relative;
+        margin-top: 2px;
+        transition: 0.4s ease;
+        background-color: #F8F8F8;
+        cursor: pointer;
         svg {
-            cursor: pointer;
-            margin-top: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+        }
+        &:hover {
+            /* background-color: #d7d7d7; */
+            box-shadow: 0 0 2px rgba(0,0,0,0.1) inset;
         }
     }
 }
@@ -54,9 +70,7 @@
 }
 
 .site-search #local-search-result {
-    
-    border-top: 1px dashed col-black;
-    overflow: auto;
+    overflow-y: auto;
     height: calc(100% - 50px);
     -webkit-overflow-scrolling: touch;
     ul.search-result-list {
@@ -72,8 +86,7 @@
             p.search-result {
                 text-align: left;
                 em.search-keyword {
-                    font-size: 1rem;
-                    color: #00f;
+                    color: #55e;
                     font-style: normal;
                 }
             }

@@ -2,7 +2,6 @@
     <% if (page.posts.length > 0) { %>
       <% page.posts.sort('date', -1).limit(10).each(function(post) { %>
         <article>
-
           <!-- title -->  
           <% if (post.link) { %>            
             <h2>
@@ -17,29 +16,28 @@
               </a>  
             </h2>                 
           <% } %>
-          
           <div class="post-meta">
             <!-- time -->
             <% if (post.date) { %>
+              <i class="fa fa-calendar-o" aria-hidden="true"></i>
               <time datetime="<%= post.date.toJSON() %>">
                 <%=date(post.date)%>
               </time>
             <% } %>
             <!-- categories -->
             <% if (post.categories && post.categories.length > 0) { %>
-                <% post.categories.forEach(function(cate){ %>
-                  <a href="<%- url_for(cate.path)%>">
-                    <span><%= cate.name %></span>
-                  </a>
-                <% }) %>
+              <i class="fa fa-tags" aria-hidden="true"></i>
+              <% post.categories.forEach(function(cate){ %>
+                <a href="<%- url_for(cate.path)%>">
+                  <span><%= cate.name %></span>
+                </a>
+              <% }) %>
             <% } %>
           </div>
-
           <!-- article -->
           <div class="article-entry" itemprop="articleBody">
             <!-- gallery -->
             <%- partial('_partials/gallery', {post: post}) %>
-
             <!-- excerpt -->
             <% if (post.description && theme.excerpt_description) { %>
               <section class="<%= post.excerpt.length < 200 ? 'center' : '' %>">
@@ -67,5 +65,3 @@
 
     <%- partial('_partials/pagination')%>
 </div>
-
-

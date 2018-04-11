@@ -14,23 +14,21 @@
           </h2>
         <% } %>
       </div>
-
       <nav id="header-nav">
         <ul class="">
           <% for (var i in theme.menu){ %>
             <li>
+        
               <a class="" href="<%- url_for(theme.menu[i]) %>" rel="nofollow"><%= __(i) %></a>
             </li>
           <% } %>
-          
           <% if (theme.local_search) { %>
             <li id="site-search-btn">
-              <div>
+              <a href="javascript:void(0)">
                 <%= __('search') %> 
-              </div>
+              </a>
             </li>
           <% } %>
-
         </ul>
       </nav>
     </div>

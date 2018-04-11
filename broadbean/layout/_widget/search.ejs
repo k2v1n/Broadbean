@@ -2,19 +2,16 @@
   <div class="local-search">
     <div class="local-search-header">
       <div class="hide-site-search" id="hide-site-search">
-        <svg width="20" height="20">
-          <line fill="none" stroke="#231815" stroke-width="2" stroke-miterlimit="100" x1="0" y1="0" x2="20" y2="20"/>
-          <line fill="none" stroke="#231815" stroke-width="2" stroke-miterlimit="10" x1="20" y1="0" x2="0" y2="20"/>
+        <svg width="15" height="15">
+          <line fill="none" stroke="#757575" stroke-width="1" stroke-miterlimit="10" x1="0" y1="0" x2="15" y2="15"/>
+          <line fill="none" stroke="#757575" stroke-width="1" stroke-miterlimit="10" x1="15" y1="0" x2="0" y2="15"/>
         </svg>
       </div>
-      <input type="text" id="local-search-input">
-
+      <input type="text" id="local-search-input" autofocus>
     </div>
     <div id="local-search-result"></div>      
   </div>
-  
 </div>   
-
 <script src="<%- url_for('js/search.js') %>"></script> 
 <script type="text/javascript">    
   $('#hide-site-search').on('click', function(){
@@ -28,7 +25,7 @@
   $('#site-search-btn').on('click', function(){
     $('.site-search').show();
   });
-  <% var searchPath = (config.search.path.length > 0) ? config.search.path : 'search.xml'%>
+  <% var searchPath = (config.search && config.search.path.length > 0) ? config.search.path : 'search.xml'%>
   searchFunc('<%- url_for(searchPath) %>', 'local-search-input', 'local-search-result');
 </script>
 

@@ -1,4 +1,4 @@
-<%
+<!-- <%
   var pageTitle = page.title || config.subtitle || '';
   if (is_home()) pageTitle += config.title;
   if (is_archive()) pageTitle = 'Archives';
@@ -6,19 +6,21 @@
   if (is_category()) pageTitle = 'Category: ' + page.category;
   if (is_month()) pageTitle += ': ' + page.month + '/' + page.year;
   if (is_year()) pageTitle += ': ' + page.year;
-%>
-
+%> -->
 <!DOCTYPE html>
 <html lang="<%= config.language %>">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width-device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= pageTitle %></title>
 
-  <script type="text/javascript" src="<%- url_for('js/fontawesome-all.min.js') %>"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <!-- js -->
   <script type="text/javascript" src="<%- url_for('js/jquery-3.3.1.min.js') %>"></script>
-  
+  <script type="text/javascript" src="<%- url_for('js/jquery.adaptive-backgrounds.js') %>"></script>
   <!-- css -->
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
   <% if (theme.stylesheets !== undefined && theme.stylesheets.length > 0) { %>
     <% theme.stylesheets.forEach(function(url) { %>
       <link rel="stylesheet" href="<%=url%>">
@@ -29,7 +31,6 @@
 <body>
   <!-- header -->
   <%- partial('_partials/header') %>
-
   <!-- main -->
   <main id="main" class="main">
       <%- body %>
@@ -49,15 +50,10 @@
     <%- partial('_widget/search.ejs') %>
   <% } %>
 
-  <!-- load js -->
-  <% if (is_post()) { %>
-    <script type="text/javascript" src="<%- url_for('js/toc.js') %>"></script>
-  <% } %>
   <% if (theme.scripts !== undefined && theme.scripts.length > 0) { %>
     <% theme.scripts.forEach(function(url) { %>
       <script src="<%= url %>"></script>
     <% }) %>
   <% } %>
-
 </body>
 </html>

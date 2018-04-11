@@ -25,15 +25,15 @@
     <div class="post-meta">
       <!-- time -->
       <% if (page.date) { %>
+        <i class="fa fa-calendar-o" aria-hidden="true"></i>
         <time datetime="<%= page.date.toJSON() %>">
           <%=date(page.date)%>
         </time>
       <% } %>
-      <br>
-
       <!-- categories -->
       <% if (page.categories.length > 0) { %>
-        <span><%= __('categories') %>:&nbsp</span>
+        <!-- <span><%= __('categories') %>:&nbsp</span> -->
+        <i class="fa fa-tags" aria-hidden="true"></i>
         <% page.categories.forEach(function(cate) { %>
           <a href="<%- url_for(cate.path)%>">
             <span><%= cate.name %></span>
