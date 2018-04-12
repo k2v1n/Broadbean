@@ -13,10 +13,8 @@ $(document).ready(function() {
     // if the element is less than 10px from the top of the viewport
     // modify "position" to "fixed"
     $(window).on('resize scroll', function(eve) {
-        console.log('aa')
         var topDistance = mainNode.offset().top - $(window).scrollTop();
         var leftDistance = mainNode.offset().left + mainNode.innerWidth() - tocNode.outerWidth(true);
-        console.log(mainNode.offset().left, mainNode.innerWidth(), tocNode.outerWidth(true));
         if (topDistance <= 10) {
             // tocNode.css('position', 'fixed');
             tocNode.css({
