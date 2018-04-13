@@ -1,11 +1,16 @@
 .main {
-    animation: fadeIn 0.4s linear;
+    animation: fadeIn 0.2s linear;
     letter-spacing: 0.04rem;
     margin-bottom: 20px;
     overflow: hidden;
-    .show-toc {
+/*     .show-toc {
         .cell {
             margin-left: 20px;
+        }
+    } */
+    .main-index {
+        .cell {
+            cursor: pointer;
         }
     }
     .main-post {
@@ -40,6 +45,7 @@
 }
 
 .main .cell {
+    display: block;
     position: relative;
     margin: 10px auto;
     padding: 20px 20px 30px;
@@ -77,11 +83,8 @@
         }
     }     
     img {
-        display: block;
         margin: 0 auto;
-        box-shadow: 0 0 2px rgba(0,0,0,0.1);
-        max-width: 50%;
-        max-height: 600px;
+        display: block;
     }
     p.ab-light,
     p.ab-dark {
@@ -95,7 +98,7 @@ main pre {
     font-size: 0.875rem;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
     margin: 10px -20px;
-    padding: 10px;
+    padding: 10px 10px 10px 20px;
     line-height: 1.25rem;
     letter-spacing: normal;
     background-color: #f8f8f8;
@@ -125,6 +128,7 @@ main .highlight {
     }
     pre {
         margin: 0;
+        padding: 10px;
     }
     .gutter {
         width: 20px;
@@ -244,6 +248,7 @@ main .highlight {
 
 @media screen and (max-width:860px) {
     .main {
+        animation: none;
         .show-toc .cell,
         .hide-toc .cell,
         .cell {

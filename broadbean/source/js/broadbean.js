@@ -5,6 +5,16 @@
 //     });
 // });
 
+$(document).ready(function(){
+    if ($('.main-index').length > 0){
+        var articles = $('.cell');
+        articles.on('click', function(event){
+            if (event.target.tagName === "A"){ return };
+            window.location.href = $(this).find('.read-more a')[0].href;
+        });
+    }
+});
+
 // table of contents
 $(document).ready(function() {
     var tocNode = $('.post-toc');
