@@ -2,7 +2,7 @@
 <% var hasToc = toc(page.content).length > 0 %>
 
 <div class="main-post <%= hasToc ? 'show-toc' : 'hide-toc' %>">
-  <!-- a table of content -->
+  <!-- table of content -->
   <% if (toc(page.content).length > 0) { %>
     <div class="post-toc">
       <div class="post-toc-content">
@@ -10,50 +10,51 @@
       </div>
     </div>
   <% } %>
-
+  <!-- table of content end-->
   <!-- article -->
-  <article>
-    <!-- title -->
-    <% if (page.link) { %>
-      <a href="<%=page.link%>">
-        <h1><%=page.title%></h1> 
-      </a>        
-    <% } else if (page.title) { %>
-        <h1><%= page.title %></h1> 
-    <% } %>
-    
-    <div class="post-meta">
-      <!-- time -->
-      <% if (page.date) { %>
-        <i class="fa fa-calendar-o" aria-hidden="true"></i>
-        <time datetime="<%= page.date.toJSON() %>">
-          <%=date(page.date)%>
-        </time>
+  <div class="cell">
+    <article>
+      <!-- title -->
+      <% if (page.link) { %>
+        <a href="<%=page.link%>">
+          <h1 class="title"><%=page.title%></h1> 
+        </a>        
+      <% } else if (page.title) { %>
+          <h1  class="title"><%= page.title %></h1> 
       <% } %>
-      <!-- categories -->
-      <% if (page.categories.length > 0) { %>
-        <!-- <span><%= __('categories') %>:&nbsp</span> -->
-        <i class="fa fa-tags" aria-hidden="true"></i>
-        <% page.categories.forEach(function(cate) { %>
-          <a href="<%- url_for(cate.path)%>">
-            <span><%= cate.name %></span>
+      <div class="post-meta">
+        <!-- time -->
+        <% if (page.date) { %>
+          <i class="fa fa-calendar-o" aria-hidden="true"></i>
+          <time datetime="<%= page.date.toJSON() %>">
+            <%=date(page.date)%>
+          </time>
+        <% } %>
+        <!-- categories -->
+        <% if (page.categories.length > 0) { %>
+          <i class="fa fa-tags" aria-hidden="true"></i>
+          <% page.categories.forEach(function(cate) { %>
+            <a href="<%- url_for(cate.path)%>">
+              <span><%= cate.name %></span>
+            </a>
+          <% }) %>
+        <% } %>    
+        <!-- categories end -->
+        <!-- tag -->
+<!--         <% page.tags.forEach(function(tag) { %>
+          <a href="<%- url_for(tag.path)%>">
+            <span><%= tag.name %></span>
           </a>
-        <% }) %>
-      <% } %>    
-
-      <!-- tag -->
-<!--       <span>tag:</span>
-      <% page.tags.forEach(function(tag) { %>
-        <a href="<%- url_for(tag.path)%>">
-          <span><%= tag.name %></span>
-        </a>
-      <% }) %> -->
-    </div>
-
-    <!-- content -->
-    <%- page.content %>
-  </article>
-
+        <% }) %> -->
+        <!-- tag end -->
+      </div>
+      <!-- content -->
+      <div class="article-content">
+      <%- page.content %>
+      </div>
+      <!-- content end -->
+    </article>
+  </div>
   <!-- pagination -->
   <% if  (page.prev || page.next) { %>
     <nav class="pagination">
@@ -65,6 +66,7 @@
       <% } %>
     </nav>    
   <% } %>
+  <!-- pagination end -->
 </div>
 
 

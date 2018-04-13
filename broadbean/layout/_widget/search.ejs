@@ -16,14 +16,18 @@
 <script type="text/javascript">    
   $('#hide-site-search').on('click', function(){
     $('.site-search').hide();
+    $('.site-search').removeClass('fadeIn');
   });
   $('.site-search').on('click', function(event){
     if (event.target === this) {
       $('.site-search').hide();
+      $('.site-search').removeClass('fadeIn');
     }
   });
   $('#site-search-btn').on('click', function(){
     $('.site-search').show();
+    $('.site-search').css('display');
+    $('.site-search').addClass('fadeIn');
   });
   <% var searchPath = (config.search && config.search.path.length > 0) ? config.search.path : 'search.xml'%>
   searchFunc('<%- url_for(searchPath) %>', 'local-search-input', 'local-search-result');

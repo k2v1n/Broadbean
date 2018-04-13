@@ -1,9 +1,9 @@
 // add image background
-$(document).ready(function(){
-    $.adaptiveBackground.run({
-        selector: 'img',
-    });
-});
+// $(document).ready(function(){
+//     $.adaptiveBackground.run({
+//         selector: 'img',
+//     });
+// });
 
 // table of contents
 $(document).ready(function() {
@@ -37,7 +37,6 @@ $(document).ready(function() {
     $('.post-toc').find('.toc-link').on('click', function(event){
         var selector = $(event.currentTarget).attr('href');
         var toTopDistance = $(selector).offset().top;
-        console.log(toTopDistance);
         $('html, body').animate({
             scrollTop: toTopDistance,
         },'slow');

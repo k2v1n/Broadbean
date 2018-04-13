@@ -1,6 +1,6 @@
 <!-- tags -->
 <% if (page.type === 'tags'){ %>
-  <div class="main-tags">
+  <div class="main-tags cell">
     <article>
       <h1><%= __(page.title) %></h1>
       <%site.tags.each(function(tag){%>
@@ -16,7 +16,7 @@
   
 <!-- categories -->
 <% } else if (page.type === 'categories'){ %>
-  <div class="main-categories">
+  <div class="main-categories cell">
     <article>
       <h1><%= __(page.title) %></h1>
       <% site.categories.each(function(cate){ %>

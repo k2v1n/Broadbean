@@ -1,4 +1,4 @@
-<div class="main-archives">
+<div class="main-archives cell">
   <article class="center">
     <% var prevYear %>
     <% page.posts.sort('date', -1).each(function(post) { %>
@@ -12,15 +12,13 @@
           <time datetime="<%- date_xml(post.date) %>">
             <small><%= date(post.date, 'YYYY-MM-DD') %></small>
           </time>
-
           <a href="<%- url_for(post.path) %>">
             <span><%= (post.title.length) > 0 ? post.title : 'no title' %></span>
           </a>
         </div>
-
       </section>
     <% }) %>
   </article>
-  <%- partial('_partials/pagination') %>
 </div>
+<%- partial('_partials/pagination') %>
 

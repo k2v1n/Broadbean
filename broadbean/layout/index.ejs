@@ -1,67 +1,76 @@
 <div class="main-index">
     <% if (page.posts.length > 0) { %>
       <% page.posts.sort('date', -1).limit(10).each(function(post) { %>
-        <article>
-          <!-- title -->  
-          <% if (post.link) { %>            
-            <h2>
-              <a href="<%= post.link %>">
-                <%= (post.title.length) > 0 ? post.title : date(post.date, 'YYYYMD')%>
-              </a>    
-            </h2>                 
-          <% } else { %>           
-            <h2>
-              <a href="<%- url_for(post.path) %>">
-                <%= (post.title.length) > 0 ? post.title : date(post.date, 'YYYYMD')%>
-              </a>  
-            </h2>                 
-          <% } %>
-          <div class="post-meta">
-            <!-- time -->
-            <% if (post.date) { %>
-              <i class="fa fa-calendar-o" aria-hidden="true"></i>
-              <time datetime="<%= post.date.toJSON() %>">
-                <%=date(post.date)%>
-              </time>
-            <% } %>
-            <!-- categories -->
-            <% if (post.categories && post.categories.length > 0) { %>
-              <i class="fa fa-tags" aria-hidden="true"></i>
-              <% post.categories.forEach(function(cate){ %>
-                <a href="<%- url_for(cate.path)%>">
-                  <span><%= cate.name %></span>
-                </a>
-              <% }) %>
-            <% } %>
-          </div>
-          <!-- article -->
-          <div class="article-entry" itemprop="articleBody">
-            <!-- gallery -->
-            <%- partial('_partials/gallery', {post: post}) %>
-            <!-- excerpt -->
-            <% if (post.description && theme.excerpt_description) { %>
-              <section class="<%= post.excerpt.length < 200 ? 'center' : '' %>">
-                <p><%= post.description %></p>
-              </section>
-               <!-- && index -->
-            <% } else if (post.excerpt){ %> 
-              <section class="<%= post.excerpt.length < 200 ? 'center' : '' %>">
-                <%- post.excerpt %>
-              </section>
-              
-              <% if (theme.excerpt_link){ %>
-                <p class="article-more-link">
-                  <a href="<%- url_for(post.path) %>#more"><%= theme.excerpt_link %></a>
-                </p>
+        <div class="cell">
+          <article>
+            <!-- title -->  
+            <h2 class="title">
+              <% if (post.link) { %>            
+                  <a href="<%= post.link %>">
+                    <%= (post.title.length) > 0 ? post.title : date(post.date, 'YYYYMD')%>
+                  </a>                 
+              <% } else { %>           
+                  <a href="<%- url_for(post.path) %>">
+                    <%= (post.title.length) > 0 ? post.title : date(post.date, 'YYYYMD')%>
+                  </a>               
               <% } %>
-            <!-- content -->
-            <% } else { %>
-              <%- post.content %>
-            <% } %>
-          </div>
-        </article>
+            </h2>
+            <!-- title end --> 
+            <!-- post meat  -->
+            <div class="post-meta">
+              <!-- time -->
+              <% if (post.date) { %>
+                <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                <time datetime="<%= post.date.toJSON() %>">
+                  <%=date(post.date)%>
+                </time>
+              <% } %>
+              <!-- time end -->
+              <!-- categories -->
+              <% if (post.categories && post.categories.length > 0) { %>
+                <i class="fa fa-tags" aria-hidden="true"></i>
+                <% post.categories.forEach(function(cate){ %>
+                  <a href="<%- url_for(cate.path)%>">
+                    <span><%= cate.name %></span>
+                  </a>
+                <% }) %>
+              <% } %>
+              <!-- categories end -->
+            </div>
+            <!-- post meat end -->
+            <!-- article -->
+            <div class="article-entry" itemprop="articleBody">
+              <!-- gallery -->
+              <%- partial('_partials/gallery', {post: post}) %>
+              <!-- gallery end -->
+              <!-- excerpt -->
+              <div class="article-content">
+                <% if (post.description && theme.excerpt_description) { %>
+                  <!-- <section> -->
+                    <p><%= post.description %></p>
+                  <!-- </section> -->
+                <% } else if (post.excerpt){ %> 
+                  <!-- <section> -->
+                    <%- post.excerpt %>
+                  <!-- </section> -->
+                <% } else { %>
+                  <%- post.content %>
+                <% } %>
+              </div>
+              <!-- excerpt end -->
+            </div>
+            <!-- article end-->
+            <p class="article-more-link">
+              <div class="more-btn">
+                <a href="<%- url_for(post.path) %>">
+                  <i class="fa fa-link" aria-hidden="true"></i>more
+                </a>
+              </div>
+            </p>    
+          </article>
+        </div>
+        <!-- cell end -->
       <% }) %>
     <% } %>
-
     <%- partial('_partials/pagination')%>
 </div>

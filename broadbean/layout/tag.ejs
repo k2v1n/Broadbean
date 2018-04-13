@@ -1,4 +1,4 @@
-<div class="main-tags">
+<div class="main-tags cell">
   <article>
     <h2><%= page.tag %></h2>
     <% page.posts.each(function(tag) { %>
@@ -14,5 +14,5 @@
       </section>
     <% }) %>
   </article>
-  <%- partial('_partials/pagination') %>
 </div>
+<%- partial('_partials/pagination') %>

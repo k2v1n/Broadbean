@@ -1,5 +1,5 @@
 
-<div class="main-categories">
+<div class="main-categories cell">
   <article>
     <h2><%= page.category %></h2>
     <% page.posts.each(function(cate) { %>
@@ -15,6 +15,6 @@
       </section>
     <% }); %>
   </article>
-  <%- partial('_partials/pagination') %>
 </div>
+<%- partial('_partials/pagination') %>
 
