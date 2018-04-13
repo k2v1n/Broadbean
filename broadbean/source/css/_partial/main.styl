@@ -5,12 +5,11 @@
     overflow: hidden;
     .show-toc {
         .cell {
-            /* float: left; */
             margin-left: 20px;
         }
     }
     .main-post {
-        max-width: 1500px;
+        max-width: 1600px;
         margin: 0 auto;
     }
     .main-archives,
@@ -29,7 +28,6 @@
             margin: 10px;
         }
     }
-
 }
 
 @keyFrames fadeIn {
@@ -43,10 +41,10 @@
 
 .main .cell {
     position: relative;
-    margin: 4px auto 10px;
-    padding: 20px 10px;
-    width: calc(100% - 400px);
-    max-width: 1100px;
+    margin: 10px auto;
+    padding: 20px 20px 30px;
+    width: calc(100% - 420px);
+    max-width: 1200px;
     min-height: 130px;
     overflow: hidden;
     background-color: #fff;
@@ -90,6 +88,55 @@
         padding: 4px 0;
         margin-left: -10px;
         margin-right: -10px;
+    }
+}
+
+main pre {
+    font-size: 0.875rem;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    margin: 10px -20px;
+    padding: 10px;
+    line-height: 1.25rem;
+    letter-spacing: normal;
+    background-color: #f8f8f8;
+    font-family: "Source Code Pro", "PingFang SC", "Microsoft YaHei", sans-serif;
+    overflow: auto;
+    code {
+        font-family: inherit;
+    }
+}
+
+main .highlight {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    margin: 10px -20px;
+    overflow: auto;
+    background-color: #f8f8f8;
+    font-size: 0.875rem;
+    figcaption {
+        margin-left: 20px;
+        padding: 4px;
+    }
+    table,
+    tr,
+    td {
+        margin: 0;
+        border: none;
+        padding: 0;
+    }
+    pre {
+        margin: 0;
+    }
+    .gutter {
+        width: 20px;
+        /* text-align: right; */
+        background-color: #f8f8f8;
+        border: none;
+        user-select: none;
+        color: #757575;
+        pre {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
     }
 }
 
@@ -200,9 +247,15 @@
         .show-toc .cell,
         .hide-toc .cell,
         .cell {
+            padding-left: 10px;
+            padding-right: 10px;
             width: calc(100% - 40px);
             margin-left: 10px;
             margin-right: 10px;
+        }
+        .highlight {
+            margin-left: -10px;
+            margin-right: -10px;
         }
         .post-toc {
             display: none;
