@@ -16,6 +16,7 @@
               <% } %>
             </h2>
             <!-- title end --> 
+
             <!-- post meat  -->
             <div class="post-meta">
               <!-- time -->
@@ -38,6 +39,7 @@
               <!-- categories end -->
             </div>
             <!-- post meat end -->
+
             <!-- article -->
             <div class="article-entry" itemprop="articleBody">
               <!-- gallery -->
@@ -46,13 +48,9 @@
               <!-- excerpt -->
               <div class="article-content">
                 <% if (post.description && theme.excerpt_description) { %>
-                  <!-- <section> -->
-                    <p><%= post.description %></p>
-                  <!-- </section> -->
+                    <p><%- post.description.trim().length > 0 ? post.description : '&nbsp;' %></p>
                 <% } else if (post.excerpt){ %> 
-                  <!-- <section> -->
                     <%- post.excerpt %>
-                  <!-- </section> -->
                 <% } else { %>
                   <%- post.content %>
                 <% } %>
@@ -60,11 +58,13 @@
               <!-- excerpt end -->
             </div>
             <!-- article end-->
+            <!-- read-more -->
             <div class="read-more">
               <div class="more-btn">
                 <a href="<%- url_for(post.path) %>">READ MORE</a>
               </div>
-            </div>    
+            </div>
+            <!-- read-more end -->
           </article>
         </div>
         <!-- cell end -->

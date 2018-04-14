@@ -1,4 +1,5 @@
 .main {
+    position: relative;
     animation: fadeIn 0.2s linear;
     letter-spacing: 0.04rem;
     margin-bottom: 20px;
@@ -19,14 +20,14 @@
         }
     }
     .main-archives,
-    .main-tags ,
-    .main-categories  {
+    .main-tags,
+    .main-categories {
         .item {
             font-size: 1.125rem;
         }
     }
-    .main-tags ,
-    .main-categories  {
+    .main-tags,
+    .main-categories {
         text-align: justify;
         a.category,
         a.tag {
@@ -50,39 +51,17 @@
     position: relative;
     margin: 10px auto;
     padding: 20px 20px 30px;
-    width: calc(100% - 420px);
+    width: calc(100% - 460px);
     max-width: 1200px;
     min-height: 130px;
     overflow: hidden;
     background-color: #fff;
-    box-shadow: 0 0 2px rgba(0,0,0,0.1);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
     border-radius: 2px;
     .title,
     .post-meta {
         text-align: center;
     }
-    a {
-        position: relative;
-        transition: 0.2s ease;
-        &:after {
-            position: absolute;
-            content: "";
-            width: 0;
-            height: 1px;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: col-black;
-            transition: 0.2s ease;
-            
-        }
-        &:hover {
-            color: col-black;
-            &::after {
-                width: 100%;
-            }
-        }
-    }     
     img {
         margin: 0 auto;
         display: block;
@@ -92,6 +71,52 @@
         padding: 4px 0;
         margin-left: -10px;
         margin-right: -10px;
+    }
+}
+
+.main .cell a {
+    position: relative;
+    transition: 0.2s ease;
+    &:after {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 1px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: col-black;
+        transition: 0.2s ease;
+    }
+    &:hover {
+        color: col-black;
+        /*             &::after {
+            width: 100%;
+        } */
+    }
+}
+
+
+/* fix safari double tap link issue when has hover property on "a" tag*/
+
+@media (pointer: fine) {
+    .main .cell a:hover:after {
+        width: 100%;
+    }
+}
+
+.main .article-content {
+    p,
+    table,
+    blockquote {
+        a {
+            color: #757575;
+        }
+        a:before {
+            content: "\f0c1";
+            margin-right: 4px;
+            font-family: FontAwesome;
+        }
     }
 }
 
@@ -146,20 +171,24 @@ main .highlight {
 }
 
 .main .post-toc {
+    box-sizing: border-box;
     background-color: #fff;
-    box-shadow: 0 0 2px rgba(0,0,0,0.1);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
     position: static;
     border-radius: 2px;
     z-index: 1;
     margin-right: 20px;
     float: right;
-    max-height: calc(100% - 60px);
+    max-height: calc(100% - 20px);
     overflow: auto;
-    width: 320px;
+    width: 360px;
     padding: 10px 0px;
     top: 10px;
-    right: 20px;
+    /* right: 20px; */
     font-size: 0.875rem;
+    .post-toc-content {
+        padding-right: 20px;
+    }
     a {
         transition: 0.1s linear;
         color: #222;
@@ -168,6 +197,7 @@ main .highlight {
         }
     }
     ol {
+        margin-left: 20px;
         transition: 1s linear;
         li {
             overflow: hidden;
@@ -177,22 +207,8 @@ main .highlight {
             list-style-type: none;
         }
     }
-
     .toc>.toc-item li {
         display: none;
-    }
-}
-
-.main .article-content {
-    p, table, blockquote {
-        a {
-            color: #757575
-        }
-        a:before {
-            content:  "\f0c1";
-            margin-right: 4px;
-            font-family: FontAwesome;
-        }
     }
 }
 
